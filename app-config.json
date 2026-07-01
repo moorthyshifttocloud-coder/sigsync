@@ -1,0 +1,25 @@
+{
+  "appId": "85d0febc-991e-4356-ad51-5dec63305915",
+  "appName": "Sigsync",
+  "logoUri": "",
+  "cliVersion": "1.1.1",
+  "auth": {
+    "type": "private",
+    "scopes": ["contacts:read","contacts:write","crm:read","crm:write","transactional.email:read"],
+    "redirectUrls": ["http://localhost:3334/auth/callback","https://anya-tardier-corbin.ngrok-free.dev/auth/callback","https://sigsync-rho.vercel.app/auth/callback"]
+  },
+  "distribution": "private",
+  "permittedUrls": {
+    "fetch": [],
+    "img": [],
+    "iframe": [],
+    "js": [],
+    "css": []
+  },
+  "support": {
+    "supportEmail": "",
+    "documentationUrl": "",
+    "supportUrl": "",
+    "supportPhone": ""
+  }
+}

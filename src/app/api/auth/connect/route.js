@@ -42,10 +42,13 @@ export async function GET(request) {
     return NextResponse.redirect(new URL('/?error=' + encodeURIComponent('Aborted: Credentials are missing.'), request.url));
   }
 
-  // Resolve scopes from sigsync app-config.json if possible
-  let scopes = 'transactional.email:read';
+  // Resolve scopes from local config or parent config if possible
+  let scopes = 'contacts:read contacts:write crm:read crm:write transactional.email:read';
   try {
-    const configPath = path.join(process.cwd(), '..', 'sigsync', 'app-config.json');
+    const localConfigPath = path.join(process.cwd(), 'app-config.json');
+    const parentConfigPath = path.join(process.cwd(), '..', 'sigsync', 'app-config.json');
+    const configPath = fs.existsSync(localConfigPath) ? localConfigPath : parentConfigPath;
+    
     if (fs.existsSync(configPath)) {
       const appConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
       if (appConfig.auth && appConfig.auth.scopes) {
