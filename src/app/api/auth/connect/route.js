@@ -60,7 +60,7 @@ export async function GET(request) {
   }
 
   // Real Brevo authorization server authorization endpoint
-  const authUrl = `https://oauth.brevo.com/realms/partner/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${encodeURIComponent(scopes)}&state=${state}`;
+  const authUrl = `https://oauth.brevo.com/realms/partner/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${encodeURIComponent(scopes)}&state=${state}&prompt=login`;
 
   const response = NextResponse.redirect(authUrl);
   response.cookies.set('oauth_state', state, { path: '/', maxAge: 300, sameSite: 'lax' });
