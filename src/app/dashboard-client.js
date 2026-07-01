@@ -206,9 +206,23 @@ export default function DashboardClient({
             <p style={{ marginBottom: '1.2rem', color: 'var(--text-muted)' }}>
               Connect Sigsync to your Brevo account. You will be redirected to Brevo's portal to log in and approve the integration.
             </p>
-            <button className="btn btn-primary" onClick={connectBrevo}>
-              Connect Brevo
-            </button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+              <div>
+                <button className="btn btn-primary" onClick={connectBrevo}>
+                  Connect Brevo
+                </button>
+              </div>
+              <div style={{ 
+                fontSize: '0.88rem', 
+                color: 'var(--text-muted)', 
+                borderTop: '1px solid var(--card-border)', 
+                paddingTop: '1rem', 
+                marginTop: '0.5rem',
+                lineHeight: '1.5'
+              }}>
+                💡 <strong>Trying to change accounts?</strong> Because you are logged in to Brevo in this browser, clicking "Connect" may log you in automatically. To switch accounts, visit the <a href="https://app.brevo.com" target="_blank" rel="noopener noreferrer" style={{ color: '#818cf8', textDecoration: 'underline', fontWeight: 500 }}>Brevo Dashboard</a> and log out of your current account first.
+              </div>
+            </div>
           </div>
         )}
       </div>
